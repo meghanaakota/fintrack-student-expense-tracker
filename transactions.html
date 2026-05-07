@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transactions — FinTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="lifestyle-body page-transactions">
+
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <div class="lifestyle-layout">
+      <!-- FLOATING APP SIDEBAR -->
+      <aside class="floating-sidebar">
+        <div class="sidebar-profile">
+          <div class="sp-avatar">S</div>
+          <div class="sp-info">
+            <span class="sp-name">Student Account</span>
+            <span class="sp-status" id="sidebar-mood"><i class="fa-solid fa-bolt"></i> Stable</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Main</span><div class="nav-line"></div></div>
+            <a href="dashboard.html" class="nav-item" title="Overview">
+              <i class="fa-solid fa-house"></i> <span class="nav-text">Overview</span>
+            </a>
+            <a href="transactions.html" class="nav-item active" title="Transactions">
+              <i class="fa-solid fa-receipt"></i> <span class="nav-text">Transactions</span>
+            </a>
+          </div>
+          
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Social</span><div class="nav-line"></div></div>
+            <a href="friends.html" class="nav-item" title="Friends">
+              <i class="fa-solid fa-user-group"></i> <span class="nav-text">Friends</span>
+              <span class="live-badge" id="sidebar-splits" style="display:none;">0 Pending</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Analytics</span><div class="nav-line"></div></div>
+            <a href="wallet.html" class="nav-item" title="Wallet">
+              <i class="fa-solid fa-wallet"></i> <span class="nav-text">Wallet</span>
+            </a>
+            <a href="insights.html" class="nav-item" title="Insights">
+              <i class="fa-solid fa-chart-pie"></i> <span class="nav-text">Insights</span>
+              <span class="live-badge pulse">New</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="settings.html" class="nav-item" title="Settings"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings</span></a>
+          <a href="index.html" class="nav-item logout" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
+        </div>
+      </aside>
+
+      <main class="dashboard-story">
+        <header class="page-header fade-in">
+          <div class="header-text">
+            <h1>Receipts of Regret</h1>
+            <p>Every single transaction. Yes, even that 3 AM swiggy order.</p>
+          </div>
+        </header>
+
+        <section class="panel-card fade-in" style="--delay: 0.1s">
+          <div class="filter-bar">
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="text" placeholder="Search transactions...">
+            </div>
+            <select class="filter-select">
+              <option>All Categories</option>
+              <option>Food & Snacks</option>
+              <option>College Life</option>
+              <option>Commute</option>
+              <option>Social</option>
+              <option>Online & Random</option>
+            </select>
+            <select class="filter-select">
+              <option>All Methods</option>
+              <option>UPI</option>
+              <option>Cash</option>
+            </select>
+            <button class="btn btn-outline" style="border-radius: 12px; padding: 10px 16px;">
+              <i class="fa-solid fa-filter"></i> Filter
+            </button>
+          </div>
+
+          <div class="tx-date-group" style="margin-top: 32px;">
+            <div class="tx-date-header">This Week</div>
+            <div class="timeline-container" id="tx-page-list">
+              <!-- JS Populates -->
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

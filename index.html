@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinTrack — Financial damage, beautifully documented.</title>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========== AMBIENT BACKGROUND ========== -->
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-2"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <!-- ========== NAVBAR ==========
+         .scrolled class added by JS on scroll -->
+    <nav class="navbar" id="navbar">
+      <a href="#home" class="nav-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="login.html" class="nav-cta">Login</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+
+    <!-- ========== HERO (PREMIUM CINEMATIC) ========== -->
+    <section class="hero-premium" id="home">
+      
+      <!-- Atmospheric Depth & Noise -->
+      <div class="cinematic-atmosphere" aria-hidden="true">
+        <div class="ambient-glow glow-1"></div>
+        <div class="ambient-glow glow-2"></div>
+        <div class="noise-overlay"></div>
+      </div>
+
+      <div class="hero-grid">
+        
+        <!-- Left: Editorial Text Content -->
+        <div class="hero-left fade-in">
+          <div class="hero-status-pill">
+            <span class="live-indicator"></span> Semester Survival Protocol
+          </div>
+          <h1 class="hero-title-premium">Financially unstable.<br><span class="accent-subtle">Visually immaculate.</span></h1>
+          <p class="hero-tagline-premium">Your UPI history requires emotional support. FinTrack gracefully maps your late-night food runs, panic auto rides, and the friends who still owe you money.</p>
+          <div class="btn-group-premium">
+            <a href="signup.html" class="btn btn-white btn-lg">Start Tracking</a>
+            <a href="login.html" class="btn btn-glass btn-lg" style="padding: 14px 36px; border-radius: 12px;">Login</a>
+          </div>
+        </div>
+
+        <!-- Right: The Chaos Engine -->
+        <div class="hero-right tilt-el fade-in" style="--delay: 0.2s">
+          <div class="chaos-engine">
+            
+            <!-- Central Core: Wallet Heartbeat -->
+            <div class="core-card">
+              <div class="core-header">
+                <span class="core-title">Wallet Heartbeat</span>
+                <span class="core-badge warning">Critical</span>
+              </div>
+              <div class="core-balance">
+                <span class="currency">₹</span>143<span class="decimals">.00</span>
+              </div>
+              <div class="core-pulse-graph">
+                <svg viewBox="0 0 200 60" class="pulse-line">
+                  <path d="M0,30 L40,30 L50,10 L60,50 L70,30 L130,30 L140,15 L150,45 L160,30 L200,30" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="core-footer">
+                <span class="meta-label">Est. Survival: 2 Days</span>
+              </div>
+            </div>
+
+            <!-- Floating System Nodes (Money Moments) -->
+            <div class="system-node node-1 depth-bg parallax-el parallax-slow">
+              <div class="node-icon"><i class="fa-solid fa-mug-hot"></i></div>
+              <div class="node-info">
+                <span class="n-title">4th chai today</span>
+                <span class="n-amt">-₹40</span>
+              </div>
+            </div>
+
+            <div class="system-node node-2 parallax-el parallax-fast">
+              <div class="node-icon" style="color: var(--cat-travel)"><i class="fa-solid fa-car"></i></div>
+              <div class="node-info">
+                <span class="n-title">Auto (Missed attendance)</span>
+                <span class="n-amt">-₹150</span>
+              </div>
+            </div>
+
+            <div class="system-node node-3 depth-fg parallax-el">
+              <div class="node-icon" style="color: #34d399"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+              <div class="node-info">
+                <span class="n-title">Sneha finally paid</span>
+                <span class="n-amt success">+₹300</span>
+              </div>
+            </div>
+
+            <div class="system-node node-4 depth-bg parallax-el parallax-slow">
+              <div class="node-icon" style="color: var(--cat-college)"><i class="fa-solid fa-print"></i></div>
+              <div class="node-info">
+                <span class="n-title">Emergency printout</span>
+                <span class="n-amt">-₹20</span>
+              </div>
+            </div>
+
+            <div class="system-node node-5 depth-fg parallax-el parallax-fast">
+              <div class="node-icon warning"><i class="fa-solid fa-triangle-exclamation"></i></div>
+              <div class="node-info">
+                <span class="n-title">Weekend damage detected</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========== APP PREVIEW SECTION ========== -->
+    <section class="section preview-section" id="preview">
+      <div class="section-inner">
+        <p class="section-label">The Command Center</p>
+        <h2>See the financial damage in real-time.</h2>
+        <p class="section-sub">A dashboard that doesn't look like a boring spreadsheet. Your entire student financial life, visualized beautifully.</p>
+        
+        <div class="app-mockup fade-in">
+          <div class="mock-header">
+            <div class="mock-nav">
+              <span class="mock-dot red"></span>
+              <span class="mock-dot yellow"></span>
+              <span class="mock-dot green"></span>
+            </div>
+            <div class="mock-title">FinTrack &mdash; Overview</div>
+          </div>
+          <div class="mock-body">
+            <div class="mock-overview">
+              <div class="mock-card main">
+                <p>Total Balance</p>
+                <h3>₹1,240.00</h3>
+                <div class="mock-bar"><div style="width: 25%"></div></div>
+              </div>
+              <div class="mock-card">
+                <p>Spent This Month</p>
+                <h3 class="danger">-₹3,760.00</h3>
+              </div>
+              <div class="mock-card">
+                <p>Friends Owe You</p>
+                <h3 class="success">+₹450.00</h3>
+              </div>
+            </div>
+            <div class="mock-feed">
+              <div class="mock-feed-item">
+                <div class="mfi-icon">🛍️</div>
+                <div class="mfi-info"><span class="mfi-title">Blinkit Emergency</span><span class="mfi-sub">Hostel snacks refill</span></div>
+                <div class="mfi-amt danger">-₹340</div>
+              </div>
+              <div class="mock-feed-item">
+                <div class="mfi-icon" style="color: #818cf8; background: rgba(129, 140, 248, 0.1)">🚇</div>
+                <div class="mfi-info"><span class="mfi-title">Metro Recharge</span><span class="mfi-sub">Daily commute</span></div>
+                <div class="mfi-amt danger">-₹150</div>
+              </div>
+              <div class="mock-feed-item">
+                <div class="mfi-icon" style="color: #34d399; background: rgba(52, 211, 153, 0.1)">💸</div>
+                <div class="mfi-info"><span class="mfi-title">Akhil</span><span class="mfi-sub">Movie plan split</span></div>
+                <div class="mfi-amt success">+₹200</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHERE MONEY GOES ========== -->
+    <section class="section bento-section" id="features">
+      <div class="section-inner">
+        <p class="section-label">Exhibit A</p>
+        <h2>Where Student Money Actually Goes</h2>
+        <p class="section-sub">Spoiler: It's not on textbooks or "future savings."</p>
+
+        <div class="bento-grid">
+          <div class="bento-card fade-in" style="--delay: 0.1s">
+            <div class="bc-icon">🍕</div>
+            <h3>Midnight Snacks</h3>
+            <p>Your wallet remembers every 2 AM decision.</p>
+            <span class="bc-tag danger">Unexpected collapse</span>
+          </div>
+          <div class="bento-card fade-in" style="--delay: 0.2s">
+            <div class="bc-icon">☕</div>
+            <h3>Campus Chai</h3>
+            <p>Every single chai has financial consequences.</p>
+            <span class="bc-tag warning">Required run rate rising</span>
+          </div>
+          <div class="bento-card fade-in" style="--delay: 0.3s">
+            <div class="bc-icon">🚇</div>
+            <h3>Auto & Commute</h3>
+            <p>Paying ₹150 for a 2km ride or metro recharges.</p>
+            <span class="bc-tag danger">Financial damage</span>
+          </div>
+          <div class="bento-card fade-in" style="--delay: 0.4s">
+            <div class="bc-icon">📱</div>
+            <h3>Online Impulses</h3>
+            <p>Amazon sales and random app subscriptions.</p>
+            <span class="bc-tag warning">Dangerous run chase</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== STORY 2: FRIENDS OWE YOU ========== -->
+    <section class="story-section" id="social">
+      <div class="story-text fade-in">
+        <p class="section-label">Group Math</p>
+        <h2>Friends Still Owe You?</h2>
+        <p class="section-sub">Keep track of who owes you for that dinner split, the movie tickets, or the auto share. Stop being the group's free bank, because "I'll UPI you later" is the biggest lie ever told.</p>
+      </div>
+      
+      <div class="story-visual fade-in">
+        <div class="mock-ui mock-friend parallax-el">
+          <div class="mf-top">
+            <div class="mf-avatar">R</div>
+            <div class="mf-name">Rahul <span class="mf-reason">Lab record printing</span></div>
+            <span class="mf-status pending">Pending</span>
+          </div>
+          <div class="mf-amt">Owes you: <span>₹450</span></div>
+          <div class="mf-progress"><div style="width: 0%"></div></div>
+        </div>
+
+        <div class="mock-ui mock-friend parallax-el parallax-fast">
+          <div class="mf-top">
+            <div class="mf-avatar" style="background: rgba(52, 211, 153, 0.2); color: #34d399;">S</div>
+            <div class="mf-name">Sneha <span class="mf-reason">Birthday contribution</span></div>
+            <span class="mf-status settled">Settled</span>
+          </div>
+          <div class="mf-amt">Returned: <span>₹300</span></div>
+          <div class="mf-progress"><div style="width: 100%; background: #34d399;"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WALLET MOOD ========== -->
+    <section class="section mood-section" id="mood">
+      <div class="section-inner">
+        <p class="section-label">Vibe Check</p>
+        <h2>Current Wallet Mood</h2>
+        <p class="section-sub">Because your bank balance has feelings too.</p>
+
+        <div class="mood-container fade-in">
+          <div class="mood-pill active" data-mood="stable"><span class="mood-dot green"></span> Stable</div>
+          <div class="mood-pill" data-mood="recovering"><span class="mood-dot yellow"></span> Recovering</div>
+          <div class="mood-pill" data-mood="danger"><span class="mood-dot red"></span> In Danger</div>
+          <div class="mood-pill" data-mood="weekend"><span class="mood-dot orange"></span> Weekend Damage</div>
+          <div class="mood-pill" data-mood="comeback"><span class="mood-dot purple"></span> Unexpected Comeback</div>
+        </div>
+
+        <div class="mood-display fade-in" id="moodDisplay">
+          <div class="md-ring" style="--mood-color: #34d399">
+            <span class="md-emoji">😌</span>
+          </div>
+          <h3 class="md-title">Cruising comfortably.</h3>
+          <p class="md-desc">You're actually sticking to the budget. Who are you?</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ========== MONTHLY SURVIVAL / CTA ========== -->
+    <section class="story-section banner-section" id="about">
+      <div class="banner-inner fade-in">
+        <span class="badge">₹ Free Forever for Students</span>
+        <h2>Your bank balance deserves better decisions.</h2>
+        <p>Sign up in 30 seconds. Start making sense of your money and stop surviving on ₹23 in the last week of the month.</p>
+        <a href="signup.html" class="btn btn-primary btn-lg">Start Tracking Now</a>
+      </div>
+    </section>
+
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><i class="fa-solid fa-wallet"></i> FinTrack</div>
+        <p class="footer-sub">Built for students, by a student. No MBA required.</p>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="#home">Home</a>
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </nav>
+
+        <p class="footer-copy">
+          &copy; 2025 FinTrack &mdash; Built with HTML, CSS &amp; JavaScript
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

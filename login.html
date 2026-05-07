@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — FinTrack</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========== NAVBAR ==========
+         .scrolled is hardcoded here — auth pages don't need scroll detection -->
+    <nav class="navbar scrolled" id="navbar">
+      <a href="index.html" class="nav-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="signup.html" class="nav-cta">Sign Up</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- ========== LOGIN PAGE ========== -->
+    <main class="auth-page">
+      <div class="auth-card fade-in">
+
+        <!-- Card header -->
+        <div class="auth-header">
+          <span class="auth-icon">👋</span>
+          <h1>Welcome Back</h1>
+          <p class="auth-sub">Let’s organize your spending chaos.</p>
+        </div>
+
+        <!-- =====================================================
+             LOGIN FORM
+             id="login-form"     → used by script.js validation
+             All inputs have:
+               id        → for JS querySelector
+               name      → for Firebase Auth field mapping
+               autocomplete → browser autofill + accessibility
+             ===================================================== -->
+        <form id="login-form" novalidate>
+
+          <!-- Email -->
+          <div class="field-group">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@college.edu"
+                autocomplete="email"
+              />
+            </div>
+            <!-- JS inserts error message here -->
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <!-- Password -->
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Your secret password"
+                autocomplete="current-password"
+              />
+              <!-- Toggle show/hide — JS handles type switch -->
+              <button
+                type="button"
+                class="toggle-pw"
+                id="toggle-login-pw"
+                aria-label="Toggle password visibility"
+              >👁</button>
+            </div>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <!-- Submit
+               id="login-btn" → JS attaches loading state here
+               TODO (Firebase): replace redirect with
+               signInWithEmailAndPassword(auth, email, password) -->
+          <button type="submit" id="login-btn" class="auth-btn">
+            Login
+          </button>
+
+        </form>
+
+        <p class="auth-switch">
+          New here? <a href="signup.html">Create an account →</a>
+        </p>
+
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinTrack Dashboard</title>
+
+    <!-- Google Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="lifestyle-body page-dashboard">
+
+    <!-- Background Ambient Glows -->
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <div class="lifestyle-layout">
+      
+      <!-- FLOATING APP SIDEBAR -->
+      <aside class="floating-sidebar">
+        <div class="sidebar-profile">
+          <div class="sp-avatar">S</div>
+          <div class="sp-info">
+            <span class="sp-name">Student Account</span>
+            <span class="sp-status" id="sidebar-mood"><i class="fa-solid fa-bolt"></i> Stable</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Main</span><div class="nav-line"></div></div>
+            <a href="dashboard.html" class="nav-item active" title="Overview">
+              <i class="fa-solid fa-house"></i> <span class="nav-text">Overview</span>
+            </a>
+            <a href="transactions.html" class="nav-item" title="Transactions">
+              <i class="fa-solid fa-receipt"></i> <span class="nav-text">Transactions</span>
+            </a>
+          </div>
+          
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Social</span><div class="nav-line"></div></div>
+            <a href="friends.html" class="nav-item" title="Friends">
+              <i class="fa-solid fa-user-group"></i> <span class="nav-text">Friends</span>
+              <span class="live-badge" id="sidebar-splits" style="display:none;">0 Pending</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Analytics</span><div class="nav-line"></div></div>
+            <a href="wallet.html" class="nav-item" title="Wallet">
+              <i class="fa-solid fa-wallet"></i> <span class="nav-text">Wallet</span>
+            </a>
+            <a href="insights.html" class="nav-item" title="Insights">
+              <i class="fa-solid fa-chart-pie"></i> <span class="nav-text">Insights</span>
+              <span class="live-badge pulse">New</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="settings.html" class="nav-item" title="Settings"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings</span></a>
+          <a href="index.html" class="nav-item logout" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
+        </div>
+      </aside>
+
+      <!-- MAIN STORY FEED -->
+      <main class="dashboard-story">
+        
+        <!-- Hero Section -->
+        <header class="story-hero">
+          <div class="hero-text fade-in">
+            <span class="story-date" id="story-date">Loading...</span>
+            <h1 id="story-greeting">Your wallet survived another over.</h1>
+            <p class="story-sub" id="story-sub">Middle-order spending collapse detected.</p>
+            <div class="hero-chips fade-in" style="--delay: 0.05s">
+              <span class="h-chip"><i class="fa-solid fa-fire"></i> <span id="streak-text">4-Day Survival Streak</span></span>
+              <span class="h-chip warning"><i class="fa-solid fa-arrow-trend-up"></i> UPI carrying the innings</span>
+            </div>
+          </div>
+
+          <div class="balance-showcase fade-in" style="--delay: 0.1s">
+            <!-- Floating Wallet Mood -->
+            <div class="wallet-vibe" id="wallet-vibe">
+              <span class="vibe-dot" id="vibe-dot"></span> <span id="vibe-text">Weekend Damage</span>
+            </div>
+            
+            <p class="bal-label">Current Survival Funds</p>
+            <h2 id="main-bal">₹0</h2>
+            
+            <div class="bal-splits">
+              <div class="split-pill"><i class="fa-solid fa-money-bill-wave" style="color:#34d399"></i> Cash <strong id="cash-bal">₹0</strong></div>
+              <div class="split-pill"><i class="fa-brands fa-google-pay" style="color:#818cf8"></i> GPay <strong id="upi-bal">₹0</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-mobile" style="color:#c084fc"></i> PhonePe <strong>₹0</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-mobile-screen" style="color:#60a5fa"></i> Paytm <strong>₹0</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-building-columns" style="color:var(--accent-primary)"></i> Bank <strong>₹3,400</strong></div>
+              <div class="split-pill" style="border-color: rgba(248,113,113,0.3);"><i class="fa-solid fa-life-ring" style="color:#f87171"></i> Emergency <strong style="color:#f87171">₹5,000</strong></div>
+            </div>
+            
+            <div class="action-row">
+              <button class="btn-glow" id="btn-add-expense"><i class="fa-solid fa-plus"></i> Add Expense</button>
+              <button class="btn-glass" id="btn-add-money"><i class="fa-solid fa-arrow-down"></i> Add Money</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="story-grid">
+          
+          <!-- LEFT COL: Feed & Friends -->
+          <div class="story-col-left">
+            
+            <!-- Friends Section -->
+            <section class="social-section panel-card fade-in" style="--delay: 0.2s">
+              <div class="section-head">
+                <h3>Friends Still Owe You?</h3>
+                <span class="sassy-label">Stop being the group's free bank.</span>
+              </div>
+              <div class="social-scroller" id="social-list">
+                <!-- JS populates -->
+              </div>
+            </section>
+
+            <!-- Timeline Feed -->
+            <section class="feed-section panel-card fade-in" style="--delay: 0.3s">
+              <div class="section-head">
+                <h3>Recent Financial Crimes</h3>
+                <span class="sassy-label">Don't look at it for too long.</span>
+              </div>
+              <div class="timeline-container" id="timeline-list">
+                <!-- JS populates -->
+              </div>
+            </section>
+            
+          </div>
+
+          <!-- RIGHT COL: Bubbles & Insights -->
+          <div class="story-col-right">
+            
+            <!-- Money Escaped -->
+            <section class="escaped-section panel-card fade-in" style="--delay: 0.4s">
+              <div class="section-head">
+                <h3>Where Money Escaped</h3>
+                <span class="sassy-label">The usual suspects.</span>
+              </div>
+              <div class="bubble-cluster" id="bubble-list">
+                <!-- JS populates -->
+              </div>
+            </section>
+            
+            <!-- Mini Insight -->
+            <section class="quick-insight fade-in" style="--delay: 0.5s">
+              <div class="insight-card">
+                <div class="ic-icon">🍦</div>
+                <div class="ic-text">
+                  <h4>Ice Cream Spending</h4>
+                  <p>Ice cream spending increased suspiciously. Late-night cravings continue dominating.</p>
+                </div>
+              </div>
+            </section>
+            
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- ==========================================
+         MODALS (Hidden by default)
+         ========================================== -->
+    <div class="ft-modal-overlay" id="expense-modal">
+      <div class="ft-modal">
+        <div class="ft-modal-header">
+          <h2>Log an Expense</h2>
+          <button class="ft-close-btn" id="close-expense-modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form class="ft-form" id="expense-form">
+          <div class="ft-form-group">
+            <label>Amount (₹)</label>
+            <input type="number" placeholder="0.00" required>
+          </div>
+          <div class="ft-form-group">
+            <label>What was it?</label>
+            <input type="text" placeholder="e.g. Late night Swiggy" required>
+          </div>
+          <div class="ft-form-row">
+            <div class="ft-form-group">
+              <label>Category</label>
+              <select>
+                <option>Food & Snacks</option>
+                <option>College Life</option>
+                <option>Commute</option>
+                <option>Social</option>
+                <option>Online & Random</option>
+              </select>
+            </div>
+            <div class="ft-form-group">
+              <label>Method</label>
+              <select>
+                <option>UPI</option>
+                <option>Cash</option>
+                <option>Bank Transfer</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Save Expense</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Money Modal -->
+    <div class="ft-modal-overlay" id="money-modal">
+      <div class="ft-modal">
+        <div class="ft-modal-header">
+          <h2>Miracle Funds Injection</h2>
+          <button class="ft-close-btn" id="close-money-modal"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <form class="ft-form" id="money-form">
+          <div class="ft-form-group">
+            <label>Amount (₹)</label>
+            <input type="number" placeholder="0.00" required>
+          </div>
+          <div class="ft-form-group">
+            <label>Source</label>
+            <input type="text" placeholder="e.g. Pocket Money, Freelance, Parent" required>
+          </div>
+          <div class="ft-form-row">
+            <div class="ft-form-group">
+              <label>Where was it added?</label>
+              <select>
+                <option>UPI / GPay</option>
+                <option>PhonePe</option>
+                <option>Paytm</option>
+                <option>Cash</option>
+                <option>Bank Account</option>
+                <option>Emergency Savings</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Deposit Funds</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

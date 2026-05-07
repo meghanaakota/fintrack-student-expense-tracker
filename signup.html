@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up — FinTrack</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar scrolled" id="navbar">
+      <a href="index.html" class="nav-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="login.html" class="nav-cta">Login</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">&#9776;</button>
+    </nav>
+
+    <!-- ========== SIGNUP PAGE ========== -->
+    <main class="auth-page">
+      <div class="auth-card fade-in">
+
+        <!-- Card header -->
+        <div class="auth-header">
+          <span class="auth-icon">🎓</span>
+          <h1>Create Your Account</h1>
+          <p class="auth-sub">Your wallet deserves accountability.</p>
+        </div>
+
+        <!-- =====================================================
+             SIGNUP FORM
+             id="signup-form"    → used by script.js validation
+             All inputs have:
+               id        → for JS querySelector
+               name      → for Firebase Auth / Firestore mapping
+               autocomplete → browser autofill + accessibility
+             ===================================================== -->
+        <form id="signup-form" novalidate>
+
+          <!-- Full name
+               TODO (Firebase): save to Firestore user profile doc as displayName -->
+          <div class="field-group">
+            <label for="full-name">Full Name</label>
+            <div class="input-wrap">
+              <span class="input-icon">👤</span>
+              <input
+                type="text"
+                id="full-name"
+                name="full-name"
+                placeholder="Your name"
+                autocomplete="name"
+              />
+            </div>
+            <span class="field-error" id="full-name-error"></span>
+          </div>
+
+          <!-- Email
+               TODO (Firebase): passed to createUserWithEmailAndPassword() -->
+          <div class="field-group">
+            <label for="email">Email</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉️</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@college.edu"
+                autocomplete="email"
+              />
+            </div>
+            <span class="field-error" id="email-error"></span>
+          </div>
+
+          <!-- Password
+               TODO (Firebase): passed to createUserWithEmailAndPassword() -->
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔒</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Min. 6 characters"
+                autocomplete="new-password"
+              />
+              <button
+                type="button"
+                class="toggle-pw"
+                id="toggle-signup-pw"
+                aria-label="Toggle password visibility"
+              >👁</button>
+            </div>
+            <span class="field-error" id="password-error"></span>
+          </div>
+
+          <!-- Confirm password — frontend only, not sent to Firebase -->
+          <div class="field-group">
+            <label for="confirm-password">Confirm Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">🔑</span>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                placeholder="Repeat your password"
+                autocomplete="new-password"
+              />
+            </div>
+            <span class="field-error" id="confirm-password-error"></span>
+          </div>
+
+          <!-- Submit
+               id="signup-btn" → JS attaches loading state here
+               TODO (Firebase): replace redirect with
+               createUserWithEmailAndPassword(auth, email, password) -->
+          <button type="submit" id="signup-btn" class="auth-btn">
+            Create Account
+          </button>
+
+        </form>
+
+        <p class="auth-switch">
+          Already have an account? <a href="login.html">Login →</a>
+        </p>
+
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

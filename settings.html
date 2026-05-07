@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Settings — FinTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="lifestyle-body page-settings">
+
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <div class="lifestyle-layout">
+      
+      <!-- FLOATING APP SIDEBAR (Global) -->
+      <aside class="floating-sidebar">
+        <div class="sidebar-profile">
+          <div class="sp-avatar">S</div>
+          <div class="sp-info">
+            <span class="sp-name">Student Account</span>
+            <span class="sp-status" id="sidebar-mood"><i class="fa-solid fa-bolt"></i> Stable</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Main</span><div class="nav-line"></div></div>
+            <a href="dashboard.html" class="nav-item" title="Overview">
+              <i class="fa-solid fa-house"></i> <span class="nav-text">Overview</span>
+            </a>
+            <a href="transactions.html" class="nav-item" title="Transactions">
+              <i class="fa-solid fa-receipt"></i> <span class="nav-text">Transactions</span>
+            </a>
+          </div>
+          
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Social</span><div class="nav-line"></div></div>
+            <a href="friends.html" class="nav-item" title="Friends">
+              <i class="fa-solid fa-user-group"></i> <span class="nav-text">Friends</span>
+              <span class="live-badge" id="sidebar-splits" style="display:none;">0 Pending</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Analytics</span><div class="nav-line"></div></div>
+            <a href="wallet.html" class="nav-item" title="Wallet">
+              <i class="fa-solid fa-wallet"></i> <span class="nav-text">Wallet</span>
+            </a>
+            <a href="insights.html" class="nav-item" title="Insights">
+              <i class="fa-solid fa-chart-pie"></i> <span class="nav-text">Insights</span>
+              <span class="live-badge pulse">New</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="settings.html" class="nav-item active" title="Settings"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings</span></a>
+          <a href="index.html" class="nav-item logout" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
+        </div>
+      </aside>
+
+      <!-- MAIN SETTINGS CONTENT -->
+      <main class="dashboard-story">
+        
+        <header class="story-hero">
+          <div class="hero-text fade-in">
+            <span class="story-date">Control Center</span>
+            <h1>Configure your financial survival system.</h1>
+            <p class="story-sub">Your wallet deserves proper management.</p>
+            <div class="hero-chips fade-in" style="--delay: 0.05s">
+              <span class="h-chip"><i class="fa-solid fa-shield-halved"></i> Privacy Protected</span>
+              <span class="h-chip warning"><i class="fa-solid fa-mobile-screen"></i> UPI dependence high</span>
+            </div>
+          </div>
+        </header>
+
+        <div class="settings-bento fade-in" style="--delay: 0.1s">
+          
+          <!-- Profile Card -->
+          <div class="panel-card col-span-2 profile-box">
+            <div class="prof-left">
+              <div class="prof-avatar">S</div>
+              <div class="prof-info">
+                <h2>Student Account</h2>
+                <p>student@college.edu</p>
+                <span class="badge" style="margin: 8px 0 0; padding: 4px 12px; font-size: 0.7rem;">Undergrad Tier</span>
+              </div>
+            </div>
+            <button class="btn-glass"><i class="fa-solid fa-pen"></i> Edit Profile</button>
+          </div>
+
+          <!-- Wallet Preferences -->
+          <div class="panel-card">
+            <div class="section-head">
+              <h3>Wallet Limits</h3>
+              <span class="sassy-label">Define boundaries before you cross them.</span>
+            </div>
+            
+            <div class="set-row">
+              <div class="set-meta">
+                <h4>Monthly Survival Budget</h4>
+                <p>The absolute ceiling for this month.</p>
+              </div>
+              <div class="set-val" id="val-budget">₹5,000</div>
+            </div>
+            <input type="range" class="premium-slider" id="slide-budget" min="1000" max="20000" step="500" value="5000">
+
+            <div class="set-row" style="margin-top: 24px;">
+              <div class="set-meta">
+                <h4>Emergency Reserve</h4>
+                <p>Untouchable safety funds.</p>
+              </div>
+              <div class="set-val" id="val-reserve" style="color: #34d399;">₹2,000</div>
+            </div>
+            <input type="range" class="premium-slider" id="slide-reserve" min="0" max="10000" step="500" value="2000">
+          </div>
+
+          <!-- Payment Sources -->
+          <div class="panel-card">
+            <div class="section-head">
+              <h3>Payment Sources</h3>
+              <span class="sassy-label">Where the damage actually happens.</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">Select your primary spending weapons.</p>
+            <div class="source-chips">
+              <div class="source-chip active" data-source="upi"><i class="fa-brands fa-google-pay"></i> GPay</div>
+              <div class="source-chip active" data-source="phonepe"><i class="fa-solid fa-mobile"></i> PhonePe</div>
+              <div class="source-chip" data-source="cash"><i class="fa-solid fa-money-bill-wave"></i> Cash</div>
+              <div class="source-chip active" data-source="bank"><i class="fa-solid fa-building-columns"></i> Bank Account</div>
+              <div class="source-chip" data-source="paytm"><i class="fa-solid fa-mobile-screen"></i> Paytm</div>
+            </div>
+          </div>
+
+          <!-- Notification Settings -->
+          <div class="panel-card">
+            <div class="section-head">
+              <h3>Panic & Alerts</h3>
+              <span class="sassy-label">Let us do the stressing for you.</span>
+            </div>
+            <div class="set-row">
+              <div class="set-meta">
+                <h4>Low Balance Panic Mode</h4>
+                <p>Warn when funds drop below 20%.</p>
+              </div>
+              <input type="checkbox" class="premium-toggle" checked>
+            </div>
+            <div class="set-row">
+              <div class="set-meta">
+                <h4>Weekend Damage Warnings</h4>
+                <p>Aggressive alerts on Saturday nights.</p>
+              </div>
+              <input type="checkbox" class="premium-toggle" checked>
+            </div>
+            <div class="set-row border-none">
+              <div class="set-meta">
+                <h4>Friend Repayment Nudge</h4>
+                <p>Remind you who still owes you money.</p>
+              </div>
+              <input type="checkbox" class="premium-toggle">
+            </div>
+          </div>
+
+          <!-- Appearance & Data -->
+          <div class="panel-card">
+            <div class="section-head">
+              <h3>Appearance & Data</h3>
+              <span class="sassy-label">Your financial chaos stays protected.</span>
+            </div>
+            <div class="set-row">
+              <div class="set-meta">
+                <h4>Compact Mode</h4>
+                <p>Fit more regret onto one screen.</p>
+              </div>
+              <input type="checkbox" class="premium-toggle">
+            </div>
+            <div class="set-row">
+              <div class="set-meta">
+                <h4>Reduced Motion</h4>
+                <p>Disable floating UI effects.</p>
+              </div>
+              <input type="checkbox" class="premium-toggle">
+            </div>
+            
+            <div class="security-actions" style="margin-top: 16px;">
+              <button class="btn-glass" style="width: 100%; justify-content: center;"><i class="fa-solid fa-download"></i> Export History</button>
+              <button class="btn-glass danger-btn" id="btn-wipe" style="width: 100%; justify-content: center;"><i class="fa-solid fa-trash-can"></i> Wipe Slate Clean</button>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

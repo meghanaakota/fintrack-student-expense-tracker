@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wallet — FinTrack</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="lifestyle-body page-wallet">
+
+    <div class="ambient-bg" aria-hidden="true">
+      <div class="ambient-orb orb-1"></div>
+      <div class="ambient-orb orb-3"></div>
+    </div>
+
+    <div class="lifestyle-layout">
+      <!-- FLOATING APP SIDEBAR -->
+      <aside class="floating-sidebar">
+        <div class="sidebar-profile">
+          <div class="sp-avatar">S</div>
+          <div class="sp-info">
+            <span class="sp-name">Student Account</span>
+            <span class="sp-status" id="sidebar-mood"><i class="fa-solid fa-bolt"></i> Stable</span>
+          </div>
+        </div>
+
+        <div class="sidebar-nav">
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Main</span><div class="nav-line"></div></div>
+            <a href="dashboard.html" class="nav-item" title="Overview">
+              <i class="fa-solid fa-house"></i> <span class="nav-text">Overview</span>
+            </a>
+            <a href="transactions.html" class="nav-item" title="Transactions">
+              <i class="fa-solid fa-receipt"></i> <span class="nav-text">Transactions</span>
+            </a>
+          </div>
+          
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Social</span><div class="nav-line"></div></div>
+            <a href="friends.html" class="nav-item" title="Friends">
+              <i class="fa-solid fa-user-group"></i> <span class="nav-text">Friends</span>
+              <span class="live-badge" id="sidebar-splits" style="display:none;">0 Pending</span>
+            </a>
+          </div>
+
+          <div class="nav-group">
+            <div class="nav-section-label"><span>Analytics</span><div class="nav-line"></div></div>
+            <a href="wallet.html" class="nav-item active" title="Wallet">
+              <i class="fa-solid fa-wallet"></i> <span class="nav-text">Wallet</span>
+            </a>
+            <a href="insights.html" class="nav-item" title="Insights">
+              <i class="fa-solid fa-chart-pie"></i> <span class="nav-text">Insights</span>
+              <span class="live-badge pulse">New</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <a href="settings.html" class="nav-item" title="Settings"><i class="fa-solid fa-gear"></i> <span class="nav-text">Settings</span></a>
+          <a href="index.html" class="nav-item logout" title="Logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="nav-text">Logout</span></a>
+        </div>
+      </aside>
+
+      <main class="dashboard-story">
+        <header class="page-header fade-in">
+          <div class="header-text">
+            <h1>The Vault</h1>
+            <p>Where your remaining survival funds are hiding.</p>
+          </div>
+        </header>
+
+        <div class="wallet-grid fade-in" style="--delay: 0.1s">
+          <div class="panel-card w-card">
+            <div class="w-icon" style="color: #34d399; background: rgba(52,211,153,0.1);"><i class="fa-solid fa-money-bill-wave"></i></div>
+            <p class="w-label">Cash in Hand</p>
+            <h2 class="w-bal">₹450</h2>
+          </div>
+          <div class="panel-card w-card">
+            <div class="w-icon" style="color: #818cf8; background: rgba(129,140,248,0.1);"><i class="fa-brands fa-google-pay"></i></div>
+            <p class="w-label">GPay / UPI Balance</p>
+            <h2 class="w-bal">₹1,240</h2>
+            <div class="w-status warning">Depleting Fast</div>
+          </div>
+          <div class="panel-card w-card">
+            <div class="w-icon" style="color: #c084fc; background: rgba(192,132,252,0.1);"><i class="fa-solid fa-mobile"></i></div>
+            <p class="w-label">PhonePe</p>
+            <h2 class="w-bal">₹850</h2>
+            <div class="w-status warning">Low</div>
+          </div>
+          <div class="panel-card w-card">
+            <div class="w-icon" style="color: #60a5fa; background: rgba(96,165,250,0.1);"><i class="fa-solid fa-mobile-screen"></i></div>
+            <p class="w-label">Paytm</p>
+            <h2 class="w-bal">₹150</h2>
+            <div class="w-status danger">Critical</div>
+          </div>
+          <div class="panel-card w-card">
+            <div class="w-icon" style="color: var(--accent-primary); background: rgba(255,209,102,0.1);"><i class="fa-solid fa-building-columns"></i></div>
+            <p class="w-label">Bank Account</p>
+            <h2 class="w-bal">₹3,400</h2>
+            <div class="w-status stable">Stable</div>
+          </div>
+          <div class="panel-card w-card" style="border-color: rgba(248,113,113,0.3);">
+            <div class="w-icon" style="color: #f87171; background: rgba(248,113,113,0.1);"><i class="fa-solid fa-life-ring"></i></div>
+            <p class="w-label">Emergency Rations</p>
+            <h2 class="w-bal">₹5,000</h2>
+            <div class="w-status">Do Not Touch</div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
