@@ -17,6 +17,15 @@
     </div>
 
     <div class="lifestyle-layout">
+      <!-- MOBILE TOP BAR (Hidden on Desktop) -->
+      <div class="mobile-top-bar">
+        <div class="mobile-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</div>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+      <!-- SIDEBAR OVERLAY (Hidden on Desktop) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      
       <!-- FLOATING APP SIDEBAR -->
       <aside class="floating-sidebar">
         <div class="sidebar-profile">
@@ -76,36 +85,36 @@
           <div class="panel-card w-card">
             <div class="w-icon" style="color: #34d399; background: rgba(52,211,153,0.1);"><i class="fa-solid fa-money-bill-wave"></i></div>
             <p class="w-label">Cash in Hand</p>
-            <h2 class="w-bal">₹450</h2>
+            <h2 class="w-bal" id="wallet-cash">₹0</h2>
           </div>
           <div class="panel-card w-card">
             <div class="w-icon" style="color: #818cf8; background: rgba(129,140,248,0.1);"><i class="fa-brands fa-google-pay"></i></div>
             <p class="w-label">GPay / UPI Balance</p>
-            <h2 class="w-bal">₹1,240</h2>
+            <h2 class="w-bal" id="wallet-gpay">₹0</h2>
             <div class="w-status warning">Depleting Fast</div>
           </div>
           <div class="panel-card w-card">
             <div class="w-icon" style="color: #c084fc; background: rgba(192,132,252,0.1);"><i class="fa-solid fa-mobile"></i></div>
             <p class="w-label">PhonePe</p>
-            <h2 class="w-bal">₹850</h2>
+            <h2 class="w-bal" id="wallet-phonepe">₹0</h2>
             <div class="w-status warning">Low</div>
           </div>
           <div class="panel-card w-card">
             <div class="w-icon" style="color: #60a5fa; background: rgba(96,165,250,0.1);"><i class="fa-solid fa-mobile-screen"></i></div>
             <p class="w-label">Paytm</p>
-            <h2 class="w-bal">₹150</h2>
+            <h2 class="w-bal" id="wallet-paytm">₹0</h2>
             <div class="w-status danger">Critical</div>
           </div>
           <div class="panel-card w-card">
             <div class="w-icon" style="color: var(--accent-primary); background: rgba(255,209,102,0.1);"><i class="fa-solid fa-building-columns"></i></div>
             <p class="w-label">Bank Account</p>
-            <h2 class="w-bal">₹3,400</h2>
+            <h2 class="w-bal" id="wallet-bank">₹0</h2>
             <div class="w-status stable">Stable</div>
           </div>
           <div class="panel-card w-card" style="border-color: rgba(248,113,113,0.3);">
             <div class="w-icon" style="color: #f87171; background: rgba(248,113,113,0.1);"><i class="fa-solid fa-life-ring"></i></div>
             <p class="w-label">Emergency Rations</p>
-            <h2 class="w-bal">₹5,000</h2>
+            <h2 class="w-bal" id="wallet-emergency">₹0</h2>
             <div class="w-status">Do Not Touch</div>
           </div>
         </div>

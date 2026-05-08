@@ -22,6 +22,15 @@
 
     <div class="lifestyle-layout">
       
+      <!-- MOBILE TOP BAR (Hidden on Desktop) -->
+      <div class="mobile-top-bar">
+        <div class="mobile-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</div>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+      <!-- SIDEBAR OVERLAY (Hidden on Desktop) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      
       <!-- FLOATING APP SIDEBAR -->
       <aside class="floating-sidebar">
         <div class="sidebar-profile">
@@ -96,10 +105,10 @@
             <div class="bal-splits">
               <div class="split-pill"><i class="fa-solid fa-money-bill-wave" style="color:#34d399"></i> Cash <strong id="cash-bal">₹0</strong></div>
               <div class="split-pill"><i class="fa-brands fa-google-pay" style="color:#818cf8"></i> GPay <strong id="upi-bal">₹0</strong></div>
-              <div class="split-pill"><i class="fa-solid fa-mobile" style="color:#c084fc"></i> PhonePe <strong>₹0</strong></div>
-              <div class="split-pill"><i class="fa-solid fa-mobile-screen" style="color:#60a5fa"></i> Paytm <strong>₹0</strong></div>
-              <div class="split-pill"><i class="fa-solid fa-building-columns" style="color:var(--accent-primary)"></i> Bank <strong>₹3,400</strong></div>
-              <div class="split-pill" style="border-color: rgba(248,113,113,0.3);"><i class="fa-solid fa-life-ring" style="color:#f87171"></i> Emergency <strong style="color:#f87171">₹5,000</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-mobile" style="color:#c084fc"></i> PhonePe <strong id="phonepe-bal">₹0</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-mobile-screen" style="color:#60a5fa"></i> Paytm <strong id="paytm-bal">₹0</strong></div>
+              <div class="split-pill"><i class="fa-solid fa-building-columns" style="color:var(--accent-primary)"></i> Bank <strong id="bank-bal">₹0</strong></div>
+              <div class="split-pill" style="border-color: rgba(248,113,113,0.3);"><i class="fa-solid fa-life-ring" style="color:#f87171"></i> Emergency <strong id="emergency-bal" style="color:#f87171">₹0</strong></div>
             </div>
             
             <div class="action-row">
@@ -152,13 +161,29 @@
               </div>
             </section>
             
-            <!-- Mini Insight -->
-            <section class="quick-insight fade-in" style="--delay: 0.5s">
-              <div class="insight-card">
-                <div class="ic-icon">🍦</div>
-                <div class="ic-text">
-                  <h4>Ice Cream Spending</h4>
-                  <p>Ice cream spending increased suspiciously. Late-night cravings continue dominating.</p>
+            <!-- Survival Tracker -->
+            <section class="survival-section panel-card fade-in" id="survival-tracker" style="--delay: 0.5s">
+              <div class="section-head">
+                <h3>Survival Intelligence</h3>
+                <span class="sassy-label" id="survival-sassy">Analyzing your burn rate...</span>
+              </div>
+              <div class="surv-stats-grid">
+                <div class="surv-box">
+                  <span class="surv-lbl">Avg Daily Spend</span>
+                  <strong class="surv-val" id="surv-avg">₹0</strong>
+                </div>
+                <div class="surv-box">
+                  <span class="surv-lbl">Days Tracked</span>
+                  <strong class="surv-val" id="surv-days">0</strong>
+                </div>
+              </div>
+              <div class="surv-progress-wrap" style="margin-top: 24px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600;">
+                  <span style="color: var(--text-secondary)">Est. Zero Balance: <strong id="surv-date" style="color: var(--text-primary)">Unknown</strong></span>
+                  <span id="surv-rem-days">0 Days Left</span>
+                </div>
+                <div style="height: 8px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden;">
+                  <div id="surv-fill" style="height: 100%; width: 100%; background: #34d399; transition: width 1s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.5s;"></div>
                 </div>
               </div>
             </section>
@@ -180,16 +205,16 @@
         <form class="ft-form" id="expense-form">
           <div class="ft-form-group">
             <label>Amount (₹)</label>
-            <input type="number" placeholder="0.00" required>
+            <input type="number" id="exp-amount" placeholder="0.00" required>
           </div>
           <div class="ft-form-group">
             <label>What was it?</label>
-            <input type="text" placeholder="e.g. Late night Swiggy" required>
+            <input type="text" id="exp-title" placeholder="e.g. Late night Swiggy" required>
           </div>
           <div class="ft-form-row">
             <div class="ft-form-group">
               <label>Category</label>
-              <select>
+              <select id="exp-category">
                 <option>Food & Snacks</option>
                 <option>College Life</option>
                 <option>Commute</option>
@@ -199,7 +224,7 @@
             </div>
             <div class="ft-form-group">
               <label>Method</label>
-              <select>
+              <select id="exp-method">
                 <option>UPI</option>
                 <option>Cash</option>
                 <option>Bank Transfer</option>
@@ -221,16 +246,16 @@
         <form class="ft-form" id="money-form">
           <div class="ft-form-group">
             <label>Amount (₹)</label>
-            <input type="number" placeholder="0.00" required>
+            <input type="number" id="inc-amount" placeholder="0.00" required>
           </div>
           <div class="ft-form-group">
             <label>Source</label>
-            <input type="text" placeholder="e.g. Pocket Money, Freelance, Parent" required>
+            <input type="text" id="inc-source" placeholder="e.g. Pocket Money, Freelance, Parent" required>
           </div>
           <div class="ft-form-row">
             <div class="ft-form-group">
               <label>Where was it added?</label>
-              <select>
+              <select id="inc-method">
                 <option>UPI / GPay</option>
                 <option>PhonePe</option>
                 <option>Paytm</option>

@@ -1,15 +1,15 @@
 # 💰 FinTrack — Student Expense Tracker
 
-A beginner-friendly, deeply immersive web app to help students track their daily expenses, built with pure HTML, CSS, and JavaScript — no frameworks.
+A full-stack, immersive web app to help students track their daily expenses. Built with a pristine Vanilla HTML/CSS/JS frontend and powered by a robust Node.js, Express, and MongoDB backend.
 *Financially unstable. Visually immaculate.*
 
 FinTrack is a premium, cinematic student financial lifestyle app. It gracefully maps your late-night food runs, panic auto rides, and the friends who still owe you money, ensuring your bank account actually survives the semester.
 
 ---
 
-## ✨ Current Features & Functionality (Built So Far)
+## ✨ Features & Functionality
 
-The project is currently powered by highly interactive Vanilla JavaScript and DOM manipulation, featuring realistic mock data for an immediate out-of-the-box experience.
+The project is powered by highly interactive Vanilla JavaScript and DOM manipulation, fully integrated with a live REST API and Cloud Database for an authentic, production-ready SaaS experience.
 
 ### 🎨 UI/UX & Animations
 - **Cinematic Landing Page:** Includes a premium 3D magnetic tilt effect on the hero section and frosted-glass navbar transitions on scroll.
@@ -33,23 +33,41 @@ The project is currently powered by highly interactive Vanilla JavaScript and DO
 - **Trend Indicators:** Pseudo-randomized visual trend arrows indicating spending direction.
 
 ### ⚙️ Settings & Controls
-- **Interactive Sliders:** Real-time DOM updates for Monthly Budget and Emergency Reserve sliders.
+- **Interactive Sliders:** Real-time DOM updates for Monthly Budget and Emergency Reserve sliders that persist dynamically to your MongoDB user profile.
 - **Source Chips:** Toggleable payment source chips (Cash, UPI, etc.).
-- **Data Wipe Mock:** A fail-safe wipe button (currently mocked) to reset the financial slate.
 
-### 🔐 Authentication Pages
-- Real-time form validation for Login and Sign-Up.
-- Password visibility toggles.
-- Error handling for missing fields, invalid emails, and mismatched passwords.
+### 🔐 Security & Backend Authentication
+- **JWT Implementation:** Fully protected API routes utilizing JSON Web Tokens and secure `localStorage` handling.
+- **Bcrypt Password Hashing:** User credentials are cryptographically secured before storing in the database.
+- **Validation:** Real-time frontend form validation coupled with strict Express/Mongoose backend error handling.
 
 ---
 
 ## 🚀 How to Run the Local Environment
 
-1. Open the project folder in **VS Code**
-2. Install the **Live Server** extension (by Ritwick Dey) from the Extensions panel
-3. Right-click `index.html` → **"Open with Live Server"**
-4. The site opens at `http://127.0.0.1:5500`
+### 1. Backend Setup (Node.js & MongoDB)
+1. Open the project folder in your terminal.
+2. Install Node dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file in the root directory and add your environment variables:
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_atlas_connection_string
+   JWT_SECRET=your_super_secret_jwt_string
+   CLIENT_URL=http://127.0.0.1:5500
+   ```
+4. Start the backend server:
+   ```bash
+   npm run dev
+   ```
+
+### 2. Frontend Setup (Live Server)
+1. Open the project folder in **VS Code**.
+2. Install the **Live Server** extension (by Ritwick Dey).
+3. Right-click `index.html` → **"Open with Live Server"**.
+4. The site opens at `http://127.0.0.1:5500` and will securely communicate with your local `localhost:5000` Node server.
 
 ---
 
@@ -69,7 +87,15 @@ student-expense-tracker/
 ├── settings.html       ← Preferences, sliders, & panic alerts
 │
 ├── style.css           ← Core styling (Glassmorphism, Dark mode, Responsive)
-├── script.js           ← Global App Logic, Animations, Validations & Renderers
+├── script.js           ← Global App Logic, Auth, Validations & API Integration
+│
+├── server.js           ← Entry point for the Express backend
+├── package.json        ← Node.js dependencies and scripts
+├── config/             ← Database connection logic (db.js)
+├── controllers/        ← API logic (auth, transactions, friends, analytics, settings)
+├── models/             ← Mongoose Schemas (User, Transaction, FriendDebt, Settings)
+├── routes/             ← Express route definitions
+├── middleware/         ← JWT Protection & Global Error Handlers
 │
 ├── assets/
 │   ├── images/         
@@ -87,14 +113,14 @@ student-expense-tracker/
 | Markup     | HTML5             | Semantic structure across 9 distinct views   |
 | Styling    | CSS3              | Pure CSS, Custom Variables, Glassmorphism    |
 | Logic      | Vanilla JS        | DOM manipulation, Observers, Event Listeners |
-| Backend    | *To be built*     | See API Specification below (e.g., Node/Express, Python/Django) |
-| Database   | *To be built*     | e.g., PostgreSQL, MongoDB, or Firebase Firestore |
+| Backend    | Node.js & Express | RESTful architecture, built-in CORS, and JWT |
+| Database   | MongoDB Atlas     | NoSQL cloud database powered by Mongoose     |
 
 ---
 
 ## 🚀 Backend API Specification
 
-This document outlines the data models and API endpoints required to build the backend for FinTrack. The backend should be a stateless RESTful API that uses JSON Web Tokens (JWT) for authentication.
+This document outlines the data models and API endpoints implemented in the backend of FinTrack. The backend is a stateless RESTful API that securely uses JSON Web Tokens (JWT) for authentication.
 
 ### Authentication Flow
 
@@ -197,4 +223,11 @@ All endpoints should be prefixed with `/api`.
 
 ---
 
-*Built as a visually stunning, resume-ready frontend project with a complete backend specification.*
+---
+
+## 🌍 Production Deployment
+- **Frontend:** Hosted on **Netlify** for lightning-fast global edge delivery.
+- **Backend:** Hosted on **Render** (Node Web Service) for secure, scalable API routing.
+- **Database:** Hosted on **MongoDB Atlas** (Cloud DB).
+
+*Built as a visually stunning, resume-ready Full-Stack application.*

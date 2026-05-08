@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body class="lifestyle-body page-insights">
 
@@ -17,6 +18,15 @@
     </div>
 
     <div class="lifestyle-layout">
+      <!-- MOBILE TOP BAR (Hidden on Desktop) -->
+      <div class="mobile-top-bar">
+        <div class="mobile-brand"><i class="fa-solid fa-wallet accent-text"></i> FinTrack</div>
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+
+      <!-- SIDEBAR OVERLAY (Hidden on Desktop) -->
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      
       <!-- FLOATING APP SIDEBAR -->
       <aside class="floating-sidebar">
         <div class="sidebar-profile">
@@ -74,23 +84,28 @@
 
         <div class="insights-bento fade-in" style="--delay: 0.1s">
           <div class="panel-card insight-box col-span-2">
-            <h3>Top Escapes</h3>
-            <div class="bubble-cluster" id="insights-bubbles" style="margin-top: 16px;"></div>
+            <h3>Category Breakdown</h3>
+            <div style="display: flex; gap: 24px; flex-wrap: wrap; align-items: center; margin-top: 16px;">
+              <div style="width: 220px; height: 220px; flex-shrink: 0;"><canvas id="categoryChart"></canvas></div>
+              <div class="bubble-cluster" id="insights-bubbles" style="flex: 1;"></div>
+            </div>
           </div>
           <div class="panel-card insight-box" style="background: linear-gradient(135deg, rgba(251,146,60,0.1), transparent); border-color: rgba(251,146,60,0.2);">
-            <i class="fa-solid fa-gift" style="font-size: 2rem; color: #fb923c; margin-bottom: 16px;"></i>
-            <h3>Birthday Season Damage</h3>
-            <p>Birthday season severely damaged your survival funds. Try homemade cards next time.</p>
+            <i class="fa-solid fa-gift" id="top-cat-icon" style="font-size: 2rem; color: #fb923c; margin-bottom: 16px;"></i>
+            <h3 id="top-cat-title">Calculating Damage...</h3>
+            <p id="top-cat-desc">Analyzing your terrible financial decisions...</p>
           </div>
           <div class="panel-card insight-box">
-            <i class="fa-solid fa-mobile-screen" style="font-size: 2rem; color: #818cf8; margin-bottom: 16px;"></i>
-            <h3>UPI Dependency</h3>
-            <p>Your <strong>UPI</strong> handled most spontaneous decisions. Cash is officially a myth.</p>
+            <i class="fa-solid fa-chart-line" style="font-size: 2rem; color: #818cf8; margin-bottom: 16px;"></i>
+            <h3>Weekly Trend</h3>
+            <p>Your spending over the last 7 days. Look at the damage.</p>
           </div>
           <div class="panel-card insight-box col-span-2">
             <h3>Habit Overview</h3>
             <p class="sassy-label">Data doesn't lie, but you can ignore it.</p>
-            <div class="timeline-container full-width" id="insights-trends" style="margin-top: 24px;"></div>
+            <div class="timeline-container full-width" style="margin-top: 24px; height: 250px;">
+              <canvas id="trendChart"></canvas>
+            </div>
           </div>
         </div>
       </main>
