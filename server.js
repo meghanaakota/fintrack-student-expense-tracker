@@ -15,9 +15,10 @@ const app = express();
 // Body parser middleware (allows Express to read JSON data)
 app.use(express.json());
 
-// Enable CORS for production security
+// Enable CORS for Netlify production and localhost development
 app.use(cors({
-  origin: process.env.CLIENT_URL || ['http://127.0.0.1:5500', 'http://localhost:5500'],
+  origin: true, // Reflects request origin (acts like '*', but supports credentials)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
 

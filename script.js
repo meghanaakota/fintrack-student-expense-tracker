@@ -111,9 +111,11 @@ const isAppPage = document.querySelector('.lifestyle-body:not(.auth-page)');
 const isAuthPage = document.querySelector('.auth-page');
 
 // --- API & HELPERS ---
-const API_BASE_URL = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost'
-  ? 'http://localhost:5000'
-  : 'https://fintrack-api-production.onrender.com'; // ⚠️ UPDATE THIS LINE LATER WITH YOUR ACTUAL RENDER URL
+const API_BASE_URL =
+  window.location.hostname === '127.0.0.1' ||
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:5000'
+    : 'https://fintrack-student-expense-tracker.onrender.com';
 
 /**
  * Shows a toast notification at the bottom of the screen.
