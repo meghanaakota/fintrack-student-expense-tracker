@@ -12,15 +12,19 @@ connectDB();
 
 const app = express();
 
+app.use(
+  cors({
+    origin: [
+      "http://127.0.0.1:5500",
+      "http://localhost:5500",
+      "https://flourishing-faun-86c068.netlify.app"
+    ],
+    credentials: true
+  })
+);
+
 // Body parser middleware (allows Express to read JSON data)
 app.use(express.json());
-
-// Enable CORS for Netlify production and localhost development
-app.use(cors({
-  origin: true, // Reflects request origin (acts like '*', but supports credentials)
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  credentials: true
-}));
 
 // Base Route
 app.get('/api/v1', (req, res) => {
